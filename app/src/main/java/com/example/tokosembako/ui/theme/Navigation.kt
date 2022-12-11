@@ -5,12 +5,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.tokosembako.ui.theme.dashboard.DashboardScreen
-import com.example.tokosembako.ui.theme.home.HomeScreenItem
+import com.example.tokosembako.ui.theme.home.HomeScreen
 import com.example.tokosembako.ui.theme.login.LoginScreen
 import com.example.tokosembako.ui.theme.login.LoginViewModel
 import com.example.tokosembako.ui.theme.login.SignUpScreen
-import com.example.tokosembako.ui.theme.transactions.TransactionsScreen
 
 enum class LoginRoutes{
     Signup,
@@ -18,7 +16,7 @@ enum class LoginRoutes{
 }
 
 enum class HomeRoutes{
-    DashboardScreen,Detail
+    HomeScreen,Detail
 }
 
 @Composable
@@ -30,7 +28,7 @@ fun Navigation(
     startDestination = LoginRoutes.SignIn.name){
         composable(route = LoginRoutes.SignIn.name){
             LoginScreen(onNavToHomePage = {
-                navController.navigate(HomeRoutes.DashboardScreen.name){
+                navController.navigate(HomeRoutes.HomeScreen.name){
                     launchSingleTop = true
                     popUpTo(route = LoginRoutes.SignIn.name){
                         inclusive = true
@@ -49,7 +47,7 @@ fun Navigation(
         }
 
         composable(route = LoginRoutes.Signup.name){
-            SignUpScreen(onNavToHomePage = {navController.navigate(HomeRoutes.DashboardScreen.name){
+            SignUpScreen(onNavToHomePage = {navController.navigate(HomeRoutes.HomeScreen.name){
                 popUpTo(LoginRoutes.Signup.name){
                     inclusive = true
                 }
@@ -60,21 +58,9 @@ fun Navigation(
             }
         }
 
-//        composable(route = HomeRoutes.HomeBottomNavBar.name){
-//            HomeBottomNavBar()
-//        }
-
-        composable(HomeScreenItem.Dashboard.route) {
-            DashboardScreen(HomeScreenItem.Dashboard.title)
+        composable(route = HomeRoutes.HomeScreen.name){
+            HomeScreen()
         }
-
-        composable(HomeScreenItem.Transactions.route) {
-            TransactionsScreen(HomeScreenItem.Transactions.title)
-        }
-
-
-
-
 
     }
 
