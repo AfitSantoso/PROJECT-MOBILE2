@@ -13,7 +13,7 @@ sealed class HomeScreenItem(
     object Dashboard :
         HomeScreenItem(
             R.string.title_dashboard_screen,
-            R.drawable.home,
+            R.drawable.ic_dashboard,
             "dashboard"
         )
 
@@ -24,10 +24,17 @@ sealed class HomeScreenItem(
             "transactions"
         )
 
+    object AddTransaction :
+        HomeScreenItem(
+            R.string.title_add_transactions_screen,
+            R.drawable.ic_transactions,
+            "transactions-add"
+        )
+
     object Settings :
         HomeScreenItem(
             R.string.title_profile_screen,
-            R.drawable.ic_profile,
+            R.drawable.ic_settings,
             "profile"
         )
 }

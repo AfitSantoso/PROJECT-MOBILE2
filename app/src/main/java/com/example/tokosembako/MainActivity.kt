@@ -14,7 +14,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.tokosembako.ui.theme.Navigation
 import com.example.tokosembako.ui.theme.TokosembakoTheme
 import com.example.tokosembako.ui.theme.login.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
